@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@city-up/data-access-building": [
+        "libs/data-access-building/src/index.ts"
+      ],
       "@city-up/my-prisma-client": ["libs/my-prisma-client/src/index.ts"],
       "@city-up/my-prisma-schema": ["libs/my-prisma-schema/src/index.ts"]
     }
