@@ -1,45 +1,32 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
-import { BuildingService } from './building.service';
-import { CreateBuildingDto } from './dto/create-building.dto';
-import { UpdateBuildingDto } from './dto/update-building.dto';
+import { Controller, Get, HttpCode, Param, Patch, Post } from '@nestjs/common';
+import { BuildingService } from '@city-up/data-access-building';
 
 @Controller('building')
 export class BuildingController {
   constructor(private readonly buildingService: BuildingService) {}
 
+  @HttpCode(200)
   @Post()
-  create(@Body() createBuildingDto: CreateBuildingDto) {
-    return this.buildingService.create(createBuildingDto);
+  create() {
+    return this.buildingService.create();
   }
 
   @Get()
   findAll() {
-    return this.buildingService.findAll();
+    return this.buildingService.getAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.buildingService.findOne(+id);
+    return this.buildingService.getById(+id);
   }
 
-  @Patch(':id')
+  //@UsePipes(new ValidationPipe())
+  @HttpCode(200)
+  @Patch(':id/upgrade')
   update(
     @Param('id') id: string,
-    @Body() updateBuildingDto: UpdateBuildingDto
   ) {
-    return this.buildingService.update(+id, updateBuildingDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.buildingService.remove(+id);
+    return this.buildingService.update(+id);
   }
 }

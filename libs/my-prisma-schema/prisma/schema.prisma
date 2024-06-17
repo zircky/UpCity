@@ -18,5 +18,7 @@ model Building {
   name        String
   level       Int
   revenue     Float
-  upgradeCost Float
+  upgradeCost Float  @map("upgrade_cost")
+  imageUrl    String @map("image_url")
+  upgradeTime Int    @map("upgrade_time")
 }

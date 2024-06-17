@@ -1,9 +1,5 @@
-import styles from './page.module.scss';
+import Home from './Home';
 
 export default function Index() {
-  return (
-    <div className={styles.page}>
-      d
-    </div>
-  );
+  return <Home />
 }

@@ -6,8 +6,8 @@ import { BuildingModule } from './building/building.module';
 import { PrismaService } from '@city-up/my-prisma-client';
 
 @Module({
-  imports: [BuildingModule, PrismaService],
+  imports: [BuildingModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}

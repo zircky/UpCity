@@ -26,7 +26,9 @@ export class BuildingService {
         name: '',
         revenue: 0,
         level: 0,
-        upgradeCost: 0
+        upgradeCost: 0,
+        imageUrl: '',
+        upgradeTime: 0
       } });
   }
 
@@ -34,10 +36,13 @@ export class BuildingService {
     const building = await this.prisma.building.findUnique({ where: { id } });
     if (building) {
       return this.prisma.building.update({
-        where: { id }, data: {
+        where: { id },
+        data: {
           level: building.level + 1,
           revenue: building.revenue * 1.5,
-          upgradeCost: building.upgradeCost * 2
+          upgradeCost: building.upgradeCost * 2,
+          imageUrl: building.imageUrl,
+          upgradeTime: building.upgradeTime * 4
         }
       });
     }
