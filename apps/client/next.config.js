@@ -7,6 +7,11 @@ const { composePlugins, withNx } = require('@nx/next');
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
+  reactStrictMode: true,
+  env: {
+    SERVER_URL: process.env.SERVER_URL,
+    APP_URL: process.env.APP_URL,
+  },
   nx: {
     // Set this to true if you would like to use SVGR
     // See: https://github.com/gregberge/svgr
@@ -15,8 +20,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'http://localhost:4200/:path*'
+        source: '/uploads/:path*',
+        destination: 'http://localhost:4200/uploads/:path*'
       }
     ]
   }
