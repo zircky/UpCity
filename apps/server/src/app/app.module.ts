@@ -9,11 +9,13 @@ import { path } from 'app-root-path';
 
 @Module({
   imports: [ServeStaticModule.forRoot({
-    rootPath: `${path}/uploads`,
+    rootPath: `${path}/apps/server/uploads`,
     serveRoot: '/uploads',
   }),
     BuildingModule],
   controllers: [AppController],
   providers: [AppService, PrismaService],
 })
-export class AppModule {}
+export class AppModule {
+  
+}

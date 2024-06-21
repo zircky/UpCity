@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '@city-up/my-prisma-client';
-import { Building } from '@prisma/client';
+
 import { returnBuildingObject } from './return-building.object';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class BuildingService {
     });
   }
 
-  getById(id: number){
+  async getById(id: number){
     return this.prisma.building.findUnique({
       where: { id },
       select: returnBuildingObject
@@ -32,7 +32,7 @@ export class BuildingService {
       } });
   }
 
-  async update(id: number): Promise<Building> {
+  async update(id: number){
     const building = await this.prisma.building.findUnique({ where: { id } });
     if (building) {
       return this.prisma.building.update({
@@ -42,7 +42,7 @@ export class BuildingService {
           revenue: building.revenue * 1.5,
           upgradeCost: building.upgradeCost * 2,
           imageUrl: building.imageUrl,
-          upgradeTime: building.upgradeTime * 4
+          upgradeTime: building.upgradeTime * 25
         }
       });
     }

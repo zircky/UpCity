@@ -14,6 +14,8 @@ comes with a LSP for Vim users.
 
 Run `npx nx dev client` to start the development server. Happy coding!
 
+Run `npx nx run server:serve:develoment` to strat server.
+
 ## Build for production
 
 Run `npx nx build client` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.

@@ -12,12 +12,12 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const corsOptions: CorsOptions = {
-    origin: 'http://localhost:4200', // Your frontend URL
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  };
-  app.enableCors(corsOptions);
+  // const corsOptions: CorsOptions = {
+  //   origin: 'http://localhost:4200', // Your frontend URL
+  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  //   allowedHeaders: ['Content-Type', 'Authorization'],
+  // };
+  app.enableCors();
 
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);

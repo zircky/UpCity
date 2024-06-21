@@ -12,12 +12,12 @@ export class BuildingController {
   }
 
   @Get()
-  findAll() {
+  getAll() {
     return this.buildingService.getAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  getById(@Param('id') id: string) {
     return this.buildingService.getById(+id);
   }
 
